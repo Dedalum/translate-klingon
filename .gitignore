@@ -1,0 +1,6 @@
+/Gopkg.lock
+/vendor
+
+jexia
+*.swp
+*.pdf
