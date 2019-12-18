@@ -30,8 +30,12 @@ Usage of ./translate-klingon:
 
 ```
 main.go
+app/app.go                      # main package for running the app
+config/config.go                # config packages for the APP
+http/client.go                  # HTTP client for querying the API
 vendor/                         # vendor packages
 
+config.json.example             # example config file
 Makefile						# Makefile 
 ```
 
