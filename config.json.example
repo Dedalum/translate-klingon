@@ -1,0 +1,5 @@
+{
+    "http_client": {
+        "api_host": "stapi.co"
+    }
+}
