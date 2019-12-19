@@ -1,5 +1,8 @@
 {
     "http_client": {
         "api_host": "stapi.co"
+    },
+    "translator": {
+        "alphabet_map_file_path": "en_to_klingon.json"
     }
 }
