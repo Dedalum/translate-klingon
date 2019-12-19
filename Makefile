@@ -21,18 +21,11 @@ test: ## Run unittests
 dep: ## Get the dependencies
 	@dep ensure
 
-build: dep ## Build the binary file
-	@rm -rf build
+build: dep clean ## Build the binary file
 	@CGO_ENABLED=0 GOOS=linux go build -a -ldflags "$(LDFLAGS)" -o build/$(PROJECT_NAME)/$(ENV)/$(PROJECT_NAME)_$(VERSIONSTRING) $(PKG)
 
-dockerize: dep ## Build and tag as latest and current version
-	docker build . -t $(PROJECT_NAME):$(VERSIONSTRING) --build-arg LDFLAGS="$(LDFLAGS)"
-	docker tag $(PROJECT_NAME):$(VERSIONSTRING) $(PROJECT_NAME):latest
-
-	# clean docker images taking space
-
 clean: ## Remove previous build
-	@rm -f $(PROJECT_NAME)
+	@rm -rf build
 
 help: ## Display this help screen
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
