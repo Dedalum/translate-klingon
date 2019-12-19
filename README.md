@@ -1,5 +1,9 @@
-# Translate Klingon (to North-American)
-Jexia back-end challenge
+# Translate Klingon (from North-American)
+
+Jexia back-end challenge.
+
+Translate a name written in English to Klingon and find out its species using
+http://stapi.co
 
 ## Table of contents
 
@@ -21,7 +25,7 @@ help                           Display this help screen
 
 ## Usage
 
-```bash
+```
 Usage of ./translate-klingon:
   -config-path string
         JSON configuration file path (default "config.json")
@@ -31,18 +35,18 @@ Usage of ./translate-klingon:
 
 ### Structure
 
-```
+```bash
 main.go
 app/app.go                      # main package for running the app
 config/config.go                # config packages for the APP
 http/client.go                  # HTTP client for querying the API
-translate/translate.go			# Translate package for converting Klingon names
-								# from Latin alphabet to Klingon alphabet
+translate/translate.go          # Translate package for converting Klingon names
+                                # from Latin alphabet to Klingon alphabet
 
 vendor/                         # vendor packages
 
 config.json.example             # example config file
-Makefile						# Makefile 
+Makefile                        # Makefile 
 ```
 
 ## Development
@@ -85,4 +89,4 @@ letter in Klingon while represented with Latin alphabet)
 ## TODO
 
 ### Ideas \& improvements
-- logger (see github.com/sirupsen/logrus for instance)_
+- logger (see github.com/sirupsen/logrus for instance)
