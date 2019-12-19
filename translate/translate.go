@@ -84,13 +84,13 @@ func (t *Translator) checkMap(word string) (string, bool) {
 
 	if word == "q" || word == "Q" {
 		return t.alphabetMap[word], true
-	} else {
-		word = strings.ToLower(word)
-		if val, ok := t.alphabetMap[word]; ok {
-			return val, true
-		} else {
-			return "", false
-		}
 	}
+
+	word = strings.ToLower(word)
+	if val, ok := t.alphabetMap[word]; ok {
+		return val, true
+	}
+
+	return "", false
 
 }
