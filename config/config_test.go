@@ -20,7 +20,11 @@ func TestLoadAppConfig(t *testing.T) {
 {
 	"http_client": {
 		"api_host": "exemple.fr"
-	}
+	},
+	"translator": {
+	    "alphabet_map_file_path": "en_to_klingon.json"
+    }
+
 }
 `
 	file, err := ioutil.TempFile(os.TempDir(), "prefix")
@@ -35,5 +39,6 @@ func TestLoadAppConfig(t *testing.T) {
 	assert.Nil(t, err)
 	if assert.NotNil(t, appConfig) {
 		assert.Equal(t, appConfig.HTTPClient.APIHost, "exemple.fr")
+		assert.Equal(t, appConfig.Translator.AlphabetMapFilePath, "en_to_klingon.json")
 	}
 }

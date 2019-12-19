@@ -5,12 +5,14 @@ import (
 	"os"
 
 	"github.com/Dedalum/translate-klingon/http"
+	"github.com/Dedalum/translate-klingon/translate"
 )
 
 type (
 	// AppConfig configuration structure
 	AppConfig struct {
-		HTTPClient http.ClientConfig `json:"http_client"`
+		HTTPClient http.ClientConfig          `json:"http_client"`
+		Translator translate.TranslatorConfig `json:"translator"`
 	}
 )
 
