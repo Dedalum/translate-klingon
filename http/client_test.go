@@ -43,6 +43,19 @@ func TestGetCharacterUIDs(t *testing.T) {
 	}
 }
 
+func TestGetCharacterUIDsNoName(t *testing.T) {
+
+	config := &ClientConfig{
+		APIHost: "stapi.co",
+	}
+	characterName := ""
+
+	c := NewClient(config)
+	uids, err := c.GetCharacterUIDs(characterName)
+	assert.Error(t, err, "character name is empty")
+	assert.Empty(t, uids)
+}
+
 func TestParseSpeciesList(t *testing.T) {
 	expectedSpeciesList := []string{"Human"}
 	jsonData := helperLoadBytes(t, "uhura_full.json")
@@ -72,6 +85,18 @@ func TestGetCharacterSpeciesList(t *testing.T) {
 	}
 }
 
+func TestGetCharacterSpeciesListNoCharacterUID(t *testing.T) {
+
+	config := &ClientConfig{
+		APIHost: "stapi.co",
+	}
+	characterUID := ""
+
+	c := NewClient(config)
+	speciesList, err := c.GetCharacterSpeciesList(characterUID)
+	assert.Error(t, err, "character UID is empty")
+	assert.Empty(t, speciesList)
+}
 func helperLoadBytes(t *testing.T, name string) []byte {
 	path := filepath.Join("testdata", name) // relative path
 	bytes, err := ioutil.ReadFile(path)
