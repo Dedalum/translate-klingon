@@ -43,6 +43,10 @@ func NewClient(config *ClientConfig) *Client {
 func (c *Client) GetCharacterUIDs(name string) ([]string, error) {
 	var characters []string
 
+	if name == "" {
+		return characters, fmt.Errorf("character name is empty")
+	}
+
 	var dataStr = []byte(fmt.Sprintf("name=%s", name))
 	resp, err := c.Post(fmt.Sprintf("%s/%s", c.apiURL, apiCharacterSearch),
 		"data", bytes.NewBuffer(dataStr))
@@ -89,6 +93,10 @@ func parseUIDs(jsonData []byte) ([]string, error) {
 func (c *Client) GetCharacterSpeciesList(characterUID string) ([]string, error) {
 
 	var speciesList []string
+
+	if characterUID == "" {
+		return speciesList, fmt.Errorf("character UID is empty")
+	}
 
 	resp, err := c.Get(
 		fmt.Sprintf("%s/%s?uid=%s", c.apiURL, apiCharacter, characterUID))
