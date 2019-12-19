@@ -13,6 +13,7 @@ http://stapi.co
 - [TODO](#todo)
 
 ## Tools & CI/CD
+
 There's a Makefile available that allows you to perform useful tasks like:
 ```
 lint                           Lint the files
@@ -22,6 +23,17 @@ build                          Build the binary file
 clean                          Remove previous build
 help                           Display this help screen
 ```
+
+### Build
+
+To build:
+```
+make build
+```
+
+The binary is available at: `build/translate-klingon/` under the name 
+`translate-klingon_<version>` (e.g. `translate-klingon_e9c99ab`).
+
 
 ## Usage
 
