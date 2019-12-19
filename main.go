@@ -14,8 +14,8 @@ var (
 )
 
 func init() {
-	flag.StringVar(&klingonInput, "name", "", "Klingon character in Latin alphabet to translate")
-	flag.StringVar(&configPath, "config-path", "config.json", "Klingon word in Latin alphabet to translate")
+	flag.StringVar(&klingonInput, "name", "", "Klingon character name in Latin alphabet to translate")
+	flag.StringVar(&configPath, "config-path", "config.json", "JSON configuration file path")
 }
 
 func main() {
