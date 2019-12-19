@@ -6,6 +6,7 @@ import (
 
 	"github.com/Dedalum/translate-klingon/config"
 	"github.com/Dedalum/translate-klingon/http"
+	"github.com/Dedalum/translate-klingon/translate"
 )
 
 func getCharacterSpecies(clientConfig *http.ClientConfig,
@@ -39,5 +40,22 @@ func Run(config *config.AppConfig, characterName string) {
 		return
 	}
 
+	translator, err := translate.NewTranslator(&config.Translator)
+	if err != nil {
+		log.Printf("%s\n", err)
+		return
+	}
+	klingon, err := translator.Convert(characterName)
+	if err != nil {
+		log.Printf("%s\n", err)
+		return
+	}
+
+	// --- printing results
+	for _, val := range klingon {
+		fmt.Printf("%s ", val)
+	}
+
+	fmt.Printf("\n\n")
 	fmt.Printf("%s\n", species)
 }
