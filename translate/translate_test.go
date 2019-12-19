@@ -84,7 +84,9 @@ func TestConvertSpecific(t *testing.T) {
 	expectedKlingon := []string{
 		"0xF8E4",
 		"0xF8D5",
+		"0xF8E9",
 		"0xF8D0",
+		"0x0020",
 		"0xF8D2",
 	}
 	config := &TranslatorConfig{
@@ -92,7 +94,7 @@ func TestConvertSpecific(t *testing.T) {
 	}
 	translator, err := NewTranslator(config)
 
-	klingon, err := translator.Convert("Tlhghach")
+	klingon, err := translator.Convert("Tlhgh'a ch")
 	assert.Nil(t, err)
 	if assert.NotEmpty(t, klingon) {
 		assert.Equal(t, expectedKlingon, klingon)
